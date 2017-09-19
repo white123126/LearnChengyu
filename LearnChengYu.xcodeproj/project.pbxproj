@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D63543AC1F6AAA6C00174EDF /* KKHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63543AB1F6AAA6C00174EDF /* KKHistory.swift */; };
+		D63543AE1F6AAAA000174EDF /* KKLearnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63543AD1F6AAAA000174EDF /* KKLearnType.swift */; };
+		D63543B41F6BAAC500174EDF /* KKChengYuInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63543B31F6BAAC500174EDF /* KKChengYuInfoViewController.swift */; };
+		D63543B61F6BAAD200174EDF /* KKChengYuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63543B51F6BAAD200174EDF /* KKChengYuListViewController.swift */; };
+		D6A162351F6A1A6200E8E708 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A162341F6A1A6200E8E708 /* AppDelegate.swift */; };
+		D6A162371F6A1A6200E8E708 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A162361F6A1A6200E8E708 /* ViewController.swift */; };
+		D6A1623A1F6A1A6200E8E708 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A162381F6A1A6200E8E708 /* Main.storyboard */; };
+		D6A1623C1F6A1A6200E8E708 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6A1623B1F6A1A6200E8E708 /* Assets.xcassets */; };
+		D6A1623F1F6A1A6200E8E708 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6A1623D1F6A1A6200E8E708 /* LaunchScreen.storyboard */; };
+		D6A162471F6A1D6000E8E708 /* chengyu.json in Resources */ = {isa = PBXBuildFile; fileRef = D6A162461F6A1D6000E8E708 /* chengyu.json */; };
+		D6A162491F6A1E9200E8E708 /* KKExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A162481F6A1E9200E8E708 /* KKExtension.swift */; };
+		D6A1624B1F6A23F800E8E708 /* KKDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1624A1F6A23F800E8E708 /* KKDBManager.swift */; };
+		D6A1624D1F6A240D00E8E708 /* KKChengYu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A1624C1F6A240D00E8E708 /* KKChengYu.swift */; };
+		D6ACDB6B1F6BBE7300F7C17A /* KKLearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ACDB6A1F6BBE7300F7C17A /* KKLearnViewController.swift */; };
+		D6ACDB6D1F6BBF5E00F7C17A /* KKChoiceQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ACDB6C1F6BBF5E00F7C17A /* KKChoiceQuestionViewController.swift */; };
+		D6BA605D1F6BD39D00FE2507 /* KKChengYuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA605C1F6BD39D00FE2507 /* KKChengYuCell.swift */; };
+		D6BA605F1F6CBD9100FE2507 /* KKChengYuLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BA605E1F6CBD9100FE2507 /* KKChengYuLabel.swift */; };
+		D6BDB5651F6F9D82003C6475 /* KKLeanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BDB5641F6F9D82003C6475 /* KKLeanView.swift */; };
+		D6D90C951F70AF3600916F72 /* chengyu.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D6D90C941F70AF3600916F72 /* chengyu.sqlite */; };
+		EE066CE7E2F3ACD12D68CFA5 /* Pods_LearnChengYu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC1BBA0BE8E3890F3F83ADC /* Pods_LearnChengYu.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		90F8C4D4C461B090D0138199 /* Pods-LearnChengYu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnChengYu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LearnChengYu/Pods-LearnChengYu.debug.xcconfig"; sourceTree = "<group>"; };
+		BAB14030F23151BDCE22CBA1 /* Pods-LearnChengYu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearnChengYu.release.xcconfig"; path = "Pods/Target Support Files/Pods-LearnChengYu/Pods-LearnChengYu.release.xcconfig"; sourceTree = "<group>"; };
+		D63543AB1F6AAA6C00174EDF /* KKHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKHistory.swift; sourceTree = "<group>"; };
+		D63543AD1F6AAAA000174EDF /* KKLearnType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKLearnType.swift; sourceTree = "<group>"; };
+		D63543B31F6BAAC500174EDF /* KKChengYuInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKChengYuInfoViewController.swift; sourceTree = "<group>"; };
+		D63543B51F6BAAD200174EDF /* KKChengYuListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKChengYuListViewController.swift; sourceTree = "<group>"; };
+		D6A162311F6A1A6200E8E708 /* LearnChengYu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnChengYu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A162341F6A1A6200E8E708 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D6A162361F6A1A6200E8E708 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D6A162391F6A1A6200E8E708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D6A1623B1F6A1A6200E8E708 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D6A1623E1F6A1A6200E8E708 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D6A162401F6A1A6200E8E708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6A162461F6A1D6000E8E708 /* chengyu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chengyu.json; sourceTree = "<group>"; };
+		D6A162481F6A1E9200E8E708 /* KKExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKExtension.swift; sourceTree = "<group>"; };
+		D6A1624A1F6A23F800E8E708 /* KKDBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKDBManager.swift; sourceTree = "<group>"; };
+		D6A1624C1F6A240D00E8E708 /* KKChengYu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKChengYu.swift; sourceTree = "<group>"; };
+		D6ACDB6A1F6BBE7300F7C17A /* KKLearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKLearnViewController.swift; sourceTree = "<group>"; };
+		D6ACDB6C1F6BBF5E00F7C17A /* KKChoiceQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKChoiceQuestionViewController.swift; sourceTree = "<group>"; };
+		D6BA605C1F6BD39D00FE2507 /* KKChengYuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKChengYuCell.swift; sourceTree = "<group>"; };
+		D6BA605E1F6CBD9100FE2507 /* KKChengYuLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKChengYuLabel.swift; sourceTree = "<group>"; };
+		D6BDB5641F6F9D82003C6475 /* KKLeanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KKLeanView.swift; sourceTree = "<group>"; };
+		D6D90C941F70AF3600916F72 /* chengyu.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = chengyu.sqlite; sourceTree = "<group>"; };
+		FFC1BBA0BE8E3890F3F83ADC /* Pods_LearnChengYu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearnChengYu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D6A1622E1F6A1A6200E8E708 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE066CE7E2F3ACD12D68CFA5 /* Pods_LearnChengYu.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D6A162281F6A1A6200E8E708 = {
+			isa = PBXGroup;
+			children = (
+				D6A162331F6A1A6200E8E708 /* LearnChengYu */,
+				D6A162321F6A1A6200E8E708 /* Products */,
+				F3C56508D1C79133C5CF196D /* Pods */,
+				DE1D16CDCE668977764A6D63 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D6A162321F6A1A6200E8E708 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6A162311F6A1A6200E8E708 /* LearnChengYu.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6A162331F6A1A6200E8E708 /* LearnChengYu */ = {
+			isa = PBXGroup;
+			children = (
+				D6A162341F6A1A6200E8E708 /* AppDelegate.swift */,
+				D6A162361F6A1A6200E8E708 /* ViewController.swift */,
+				D63543B31F6BAAC500174EDF /* KKChengYuInfoViewController.swift */,
+				D63543B51F6BAAD200174EDF /* KKChengYuListViewController.swift */,
+				D6ACDB6A1F6BBE7300F7C17A /* KKLearnViewController.swift */,
+				D6BDB5641F6F9D82003C6475 /* KKLeanView.swift */,
+				D6ACDB6C1F6BBF5E00F7C17A /* KKChoiceQuestionViewController.swift */,
+				D6A162481F6A1E9200E8E708 /* KKExtension.swift */,
+				D6A1624A1F6A23F800E8E708 /* KKDBManager.swift */,
+				D6A1624C1F6A240D00E8E708 /* KKChengYu.swift */,
+				D63543AB1F6AAA6C00174EDF /* KKHistory.swift */,
+				D63543AD1F6AAAA000174EDF /* KKLearnType.swift */,
+				D6BA605C1F6BD39D00FE2507 /* KKChengYuCell.swift */,
+				D6BA605E1F6CBD9100FE2507 /* KKChengYuLabel.swift */,
+				D6A162461F6A1D6000E8E708 /* chengyu.json */,
+				D6A162381F6A1A6200E8E708 /* Main.storyboard */,
+				D6A1623B1F6A1A6200E8E708 /* Assets.xcassets */,
+				D6A1623D1F6A1A6200E8E708 /* LaunchScreen.storyboard */,
+				D6A162401F6A1A6200E8E708 /* Info.plist */,
+				D6D90C941F70AF3600916F72 /* chengyu.sqlite */,
+			);
+			path = LearnChengYu;
+			sourceTree = "<group>";
+		};
+		DE1D16CDCE668977764A6D63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFC1BBA0BE8E3890F3F83ADC /* Pods_LearnChengYu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3C56508D1C79133C5CF196D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90F8C4D4C461B090D0138199 /* Pods-LearnChengYu.debug.xcconfig */,
+				BAB14030F23151BDCE22CBA1 /* Pods-LearnChengYu.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D6A162301F6A1A6200E8E708 /* LearnChengYu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D6A162431F6A1A6200E8E708 /* Build configuration list for PBXNativeTarget "LearnChengYu" */;
+			buildPhases = (
+				9962B555B1BCDD1C9F7318D2 /* [CP] Check Pods Manifest.lock */,
+				D6A1622D1F6A1A6200E8E708 /* Sources */,
+				D6A1622E1F6A1A6200E8E708 /* Frameworks */,
+				D6A1622F1F6A1A6200E8E708 /* Resources */,
+				C0E0CE5D194A871F1FBB4170 /* [CP] Embed Pods Frameworks */,
+				07EB5831FE793B714DB527C1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LearnChengYu;
+			productName = LearnChengYu;
+			productReference = D6A162311F6A1A6200E8E708 /* LearnChengYu.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D6A162291F6A1A6200E8E708 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = com.kkdl;
+				TargetAttributes = {
+					D6A162301F6A1A6200E8E708 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = Q8JSQLM963;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D6A1622C1F6A1A6200E8E708 /* Build configuration list for PBXProject "LearnChengYu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D6A162281F6A1A6200E8E708;
+			productRefGroup = D6A162321F6A1A6200E8E708 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D6A162301F6A1A6200E8E708 /* LearnChengYu */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D6A1622F1F6A1A6200E8E708 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6A1623F1F6A1A6200E8E708 /* LaunchScreen.storyboard in Resources */,
+				D6A1623C1F6A1A6200E8E708 /* Assets.xcassets in Resources */,
+				D6D90C951F70AF3600916F72 /* chengyu.sqlite in Resources */,
+				D6A1623A1F6A1A6200E8E708 /* Main.storyboard in Resources */,
+				D6A162471F6A1D6000E8E708 /* chengyu.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07EB5831FE793B714DB527C1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LearnChengYu/Pods-LearnChengYu-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9962B555B1BCDD1C9F7318D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C0E0CE5D194A871F1FBB4170 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LearnChengYu/Pods-LearnChengYu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D6A1622D1F6A1A6200E8E708 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D63543AC1F6AAA6C00174EDF /* KKHistory.swift in Sources */,
+				D63543AE1F6AAAA000174EDF /* KKLearnType.swift in Sources */,
+				D6A162491F6A1E9200E8E708 /* KKExtension.swift in Sources */,
+				D6A162371F6A1A6200E8E708 /* ViewController.swift in Sources */,
+				D6BDB5651F6F9D82003C6475 /* KKLeanView.swift in Sources */,
+				D6BA605F1F6CBD9100FE2507 /* KKChengYuLabel.swift in Sources */,
+				D63543B61F6BAAD200174EDF /* KKChengYuListViewController.swift in Sources */,
+				D6ACDB6B1F6BBE7300F7C17A /* KKLearnViewController.swift in Sources */,
+				D6A1624D1F6A240D00E8E708 /* KKChengYu.swift in Sources */,
+				D6A162351F6A1A6200E8E708 /* AppDelegate.swift in Sources */,
+				D6ACDB6D1F6BBF5E00F7C17A /* KKChoiceQuestionViewController.swift in Sources */,
+				D63543B41F6BAAC500174EDF /* KKChengYuInfoViewController.swift in Sources */,
+				D6A1624B1F6A23F800E8E708 /* KKDBManager.swift in Sources */,
+				D6BA605D1F6BD39D00FE2507 /* KKChengYuCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D6A162381F6A1A6200E8E708 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6A162391F6A1A6200E8E708 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D6A1623D1F6A1A6200E8E708 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D6A1623E1F6A1A6200E8E708 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D6A162411F6A1A6200E8E708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D6A162421F6A1A6200E8E708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D6A162441F6A1A6200E8E708 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90F8C4D4C461B090D0138199 /* Pods-LearnChengYu.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q8JSQLM963;
+				INFOPLIST_FILE = LearnChengYu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kkdl.LearnChengYu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D6A162451F6A1A6200E8E708 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAB14030F23151BDCE22CBA1 /* Pods-LearnChengYu.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q8JSQLM963;
+				INFOPLIST_FILE = LearnChengYu/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kkdl.LearnChengYu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D6A1622C1F6A1A6200E8E708 /* Build configuration list for PBXProject "LearnChengYu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6A162411F6A1A6200E8E708 /* Debug */,
+				D6A162421F6A1A6200E8E708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6A162431F6A1A6200E8E708 /* Build configuration list for PBXNativeTarget "LearnChengYu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6A162441F6A1A6200E8E708 /* Debug */,
+				D6A162451F6A1A6200E8E708 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D6A162291F6A1A6200E8E708 /* Project object */;
+}

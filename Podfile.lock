@@ -1,0 +1,47 @@
+PODS:
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
+  - Onboard (2.3.1)
+  - PermissionScope (1.1.1)
+  - Realm (2.10.0):
+    - Realm/Headers (= 2.10.0)
+  - Realm/Headers (2.10.0)
+  - RealmSwift (2.10.0):
+    - Realm (= 2.10.0)
+  - SnapKit (3.2.0)
+  - SQLite.swift (0.11.3):
+    - SQLite.swift/standard (= 0.11.3)
+  - SQLite.swift/standard (0.11.3)
+  - SwiftyJSON (3.1.4)
+  - Timepiece (1.2.0)
+
+DEPENDENCIES:
+  - ChameleonFramework
+  - FMDB
+  - Onboard
+  - PermissionScope
+  - RealmSwift
+  - SnapKit (~> 3.2.0)
+  - SQLite.swift (~> 0.11.3)
+  - SwiftyJSON
+  - Timepiece
+
+SPEC CHECKSUMS:
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
+  PermissionScope: a30c16e015779ba27c97c124e7539e27b5829de2
+  Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
+  RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  SQLite.swift: 99b36c22084427f0abbeb957556ce1528cf10bb3
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Timepiece: d07900e985af4911f09146f1175fdbec37944836
+
+PODFILE CHECKSUM: 61a594c0df995250f8ab743713a9242d465a2656
+
+COCOAPODS: 1.2.1
