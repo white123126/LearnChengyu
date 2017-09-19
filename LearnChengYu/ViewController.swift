@@ -45,7 +45,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.showAllChengYu()
             break
         case 1:
-            
+            self.showLearnView(type: .Completion)
             break
         case 2:
             self.showLearnView(type: .ChengYuSelectShiYi)

@@ -22,18 +22,10 @@ class KKChengYuInfoViewController: UIViewController {
         self.view.addSubview(self.chengyuLabel)
         self.view.addSubview(self.chuchuLabel)
         self.view.addSubview(self.shiyiLable)
+        
         self.chengyuLabel.chengyuFontSize = self.view.bounds.size.width / CGFloat(chengyu.title.characters.count) / 2.0
         self.chengyuLabel.pinyinFontSize = self.chengyuLabel.chengyuFontSize/2.0
-//        if chengyu.title.characters.count > 4 {
-//            self.chengyuLabel.chengyuFontSize = 20
-//            self.chengyuLabel.pinyinFontSize = 12
-//        }else {
-//            self.chengyuLabel.chengyuFontSize = 40
-//            self.chengyuLabel.pinyinFontSize = 20
-//        }
-        
         self.chengyuLabel.chengyu = chengyu
-        
         self.chuchuLabel.backgroundColor = UIColor.clear
         self.chuchuLabel.font = UIFont.systemFont(ofSize: 16)
         self.chuchuLabel.textColor = UIColor.gray

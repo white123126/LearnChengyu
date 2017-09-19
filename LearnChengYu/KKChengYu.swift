@@ -19,7 +19,6 @@ class KKChengYu: NSObject {
     var showAll = true // 是否全部显示
     var hidenIndex = -1 //隐藏字的位置 小于0等于showAll
     var id = 0
-    
     override init() {
         super.init()
     }

@@ -12,6 +12,7 @@ import SnapKit
 enum KKLearnViewType {
     case ChengYuSelectShiYi
     case ShiYiSelectChengYu
+    case Completion
 }
 
 class KKLeanView: UIView {
@@ -34,7 +35,7 @@ class KKLeanView: UIView {
                             break
                         }
                     }
-                }else {
+                }else if viewType == .ShiYiSelectChengYu{
                     wrongAnswers = KKDBManager.sharedManager().randomChengYuTitle(count: 3, number: 0)
                     wrongAnswers.append((chengyu?.title)!)
                     wrongAnswers.sort { (str0, strq) -> Bool in
@@ -48,6 +49,31 @@ class KKLeanView: UIView {
                             break
                         }
                     }
+                }else {
+                    chengyu?.randomHiden()
+                    var hidenStr: String = (chengyu?.title)!
+                    hidenStr = hidenStr[(chengyu?.hidenIndex)!]
+                    
+                    let randomCYs = KKDBManager.sharedManager().randomChengYuTitle(count: 3, number: 0)
+                    
+                    var array: Array<String> = []
+                    for i in 0..<randomCYs.count {
+                        array.append(randomCYs[i][(chengyu?.hidenIndex)!])
+                    }
+                    array.append(hidenStr)
+                    
+                    wrongAnswers = array
+                    wrongAnswers.sort { (str0, strq) -> Bool in
+                        let random = arc4random()%2
+                        return random == 0 ? false : true
+                    }
+                    for i in 0..<wrongAnswers.count {
+                        let string = wrongAnswers[i]
+                        if string == hidenStr {
+                            index = i
+                            break
+                        }
+                    }
                 }
             }
             self.reloadSubviews()
@@ -57,6 +83,7 @@ class KKLeanView: UIView {
     var index:Int = 0 //正确选项
     var issueIndex = 1
     let issueLabel:UILabel = UILabel.init(frame: CGRect.zero)
+    let shiyiLable:UILabel = UILabel.init(frame: CGRect.zero)
     let answerView:KKAnswerView = KKAnswerView.init(frame: CGRect.zero)
     let nextButton:UIButton = UIButton.init(frame: CGRect.zero)
     
@@ -64,9 +91,11 @@ class KKLeanView: UIView {
         self.chengyu = nil
         super.init(frame: frame)
         self.addSubview(issueLabel)
+        self.addSubview(self.shiyiLable)
         self.addSubview(answerView)
         self.addSubview(nextButton)
         self.issueLabel.numberOfLines = 0
+        
         self.issueLabel.snp.makeConstraints { (make) in
             make.left.equalTo(self).offset(20)
             make.right.equalTo(self).offset(-20)
@@ -75,11 +104,22 @@ class KKLeanView: UIView {
         self.issueLabel.font = UIFont.systemFont(ofSize: 35)
         self.issueLabel.textColor = UIColor.black
         
-        self.answerView.snp.makeConstraints { (make) in
+        self.shiyiLable.snp.makeConstraints { (make) in
             make.left.equalTo(self).offset(20)
-            make.top.equalTo(issueLabel.snp.bottom).offset(50)
+            make.top.equalTo(self.issueLabel.snp.bottom).offset(20)
             make.right.equalTo(self).offset(-20)
         }
+        self.shiyiLable.numberOfLines = 0
+        self.shiyiLable.font = UIFont.systemFont(ofSize: 16)
+        self.shiyiLable.textColor = UIColor.gray
+        self.shiyiLable.isHidden = true
+        
+        self.answerView.snp.makeConstraints { (make) in
+            make.left.equalTo(self).offset(20)
+            make.top.equalTo(self.shiyiLable.snp.bottom).offset(30)
+            make.right.equalTo(self).offset(-20)
+        }
+        
         self.nextButton.snp.makeConstraints { (make) in
             make.centerX.equalTo(self.snp.centerX)
             make.width.equalTo(80)
@@ -99,14 +139,28 @@ class KKLeanView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     
     func reloadSubviews() {
         if viewType == .ChengYuSelectShiYi {
             self.issueLabel.text = String.init(format: "%d、", arguments: [issueIndex]) + (chengyu?.title)!
-        }else {
+        }else if viewType == .ShiYiSelectChengYu{
             self.issueLabel.text = String.init(format: "%d、", arguments: [issueIndex]) + (chengyu?.shiyi)!
             self.issueLabel.font = UIFont.systemFont(ofSize: 20)
+        }else {
+            
+            let indexStr = String.init(format: "%d、", arguments: [issueIndex])
+            let str = indexStr + (chengyu?.title)!
+            let attributedText:NSMutableAttributedString = NSMutableAttributedString.init(string: str)
+            attributedText.addAttributes([NSFontAttributeName:issueLabel.font,NSForegroundColorAttributeName:UIColor.black], range: NSRange.init(location: 0, length: str.characters.count))
+            attributedText.addAttributes([NSFontAttributeName:issueLabel.font,NSForegroundColorAttributeName:UIColor.clear], range: NSRange.init(location: (chengyu?.hidenIndex)! + indexStr.characters.count, length: 1))
+            attributedText.addAttributes([NSUnderlineColorAttributeName:UIColor.black], range: NSRange.init(location: (chengyu?.hidenIndex)! + indexStr.characters.count, length: 1))
+            attributedText.addAttributes([NSUnderlineStyleAttributeName:NSUnderlineStyle.styleSingle.rawValue], range: NSRange.init(location: (chengyu?.hidenIndex)! + indexStr.characters.count, length: 1))
+            
+            let attri:NSAttributedString = (attributedText.copy() as? NSAttributedString)!
+            self.issueLabel.attributedText = attri
+            self.shiyiLable.text = "释义："+(chengyu?.shiyi)!
+            self.shiyiLable.isHidden = false
         }
         
         self.answerView.answers = wrongAnswers

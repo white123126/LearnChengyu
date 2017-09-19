@@ -7,10 +7,6 @@ class KKChengYuLabel: UILabel {
             title  = (chengyu?.title)!
             pinyin = (chengyu?.pinyin)!
             self.drawText(in: CGRect.zero)
-//            if title.characters.count > 10 {
-//                chengyuFontSize = UIScreen.main.bounds.size.width / CGFloat((title.characters.count)) / 2.0
-//                pinyinFontSize = chengyuFontSize/2.0
-//            }
         }
     }
     var pinyinFontSize: CGFloat!
@@ -23,6 +19,7 @@ class KKChengYuLabel: UILabel {
             self.drawText(in: self.bounds)
         }
     }
+    var hidenIndex = -1
     
     override init(frame: CGRect) {
         title = ""
@@ -104,7 +101,11 @@ class KKChengYuLabel: UILabel {
             var textTextContent = character
             let textStyle = NSMutableParagraphStyle()
             textStyle.alignment = .center
-            var textFontAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: pinyinFontSize)!, NSForegroundColorAttributeName: UIColor.gray, NSParagraphStyleAttributeName: textStyle]
+            var textColor = UIColor.gray
+            if i == hidenIndex {
+                textColor = UIColor.clear
+            }
+            var textFontAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: pinyinFontSize)!, NSForegroundColorAttributeName: textColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
             
             var size = textTextContent.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil)
             var textTextHeight: CGFloat = size.height + 2
@@ -119,7 +120,11 @@ class KKChengYuLabel: UILabel {
             
             textRect = CGRect(x: left, y: Int(textTextHeight)+10, width: Int(textWidth), height: Int(textTextHeight))
             textTextContent = title[i]
-            textFontAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: chengyuFontSize)!, NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: textStyle]
+            textColor = UIColor.black
+            if i == hidenIndex {
+                textColor = UIColor.clear
+            }
+            textFontAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: chengyuFontSize)!, NSForegroundColorAttributeName: textColor, NSParagraphStyleAttributeName: textStyle]
             
             size = textTextContent.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil)
             textTextHeight = size.height
