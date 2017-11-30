@@ -14,14 +14,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     let tableView = UITableView.init(frame: CGRect.zero, style: UITableViewStyle.plain)
     let cellIdentifier = "MainViewCell"
     let titles = ["全部成语","完形填空","释义选择","成语选择"]
-    var pinyins:Array<Any>! = []
+    var pinyins:Array<Any>! =  []
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         for title in titles {
             pinyins.append(title.pingyin())
         }
         tableView.register(KKChengYuCell.classForCoder(), forCellReuseIdentifier:cellIdentifier)
-        tableView.tableFooterView = UIView.init();
+        tableView.tableFooterView = UIView.init()
         tableView.delegate = self
         tableView.dataSource = self
         self.view.addSubview(tableView)

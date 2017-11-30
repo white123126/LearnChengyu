@@ -54,11 +54,18 @@ class KKLeanView: UIView {
                     var hidenStr: String = (chengyu?.title)!
                     hidenStr = hidenStr[(chengyu?.hidenIndex)!]
                     
-                    let randomCYs = KKDBManager.sharedManager().randomChengYuTitle(count: 3, number: 0)
+                    let randomCYs = KKDBManager.sharedManager().randomChengYuTitle(count: 10, number: 0)
                     
                     var array: Array<String> = []
                     for i in 0..<randomCYs.count {
-                        array.append(randomCYs[i][(chengyu?.hidenIndex)!])
+                        let str:String = randomCYs[i][(chengyu?.hidenIndex)!]
+                        if str != hidenStr {
+                            array.append(str)
+                        }
+                        
+                        if array.count == 3{
+                            break
+                        }
                     }
                     array.append(hidenStr)
                     
@@ -152,10 +159,10 @@ class KKLeanView: UIView {
             let indexStr = String.init(format: "%d、", arguments: [issueIndex])
             let str = indexStr + (chengyu?.title)!
             let attributedText:NSMutableAttributedString = NSMutableAttributedString.init(string: str)
-            attributedText.addAttributes([NSFontAttributeName:issueLabel.font,NSForegroundColorAttributeName:UIColor.black], range: NSRange.init(location: 0, length: str.characters.count))
-            attributedText.addAttributes([NSFontAttributeName:issueLabel.font,NSForegroundColorAttributeName:UIColor.clear], range: NSRange.init(location: (chengyu?.hidenIndex)! + indexStr.characters.count, length: 1))
-            attributedText.addAttributes([NSUnderlineColorAttributeName:UIColor.black], range: NSRange.init(location: (chengyu?.hidenIndex)! + indexStr.characters.count, length: 1))
-            attributedText.addAttributes([NSUnderlineStyleAttributeName:NSUnderlineStyle.styleSingle.rawValue], range: NSRange.init(location: (chengyu?.hidenIndex)! + indexStr.characters.count, length: 1))
+            attributedText.addAttributes([NSAttributedStringKey.font:issueLabel.font,NSAttributedStringKey.foregroundColor:UIColor.black], range: NSRange.init(location: 0, length: str.count))
+            attributedText.addAttributes([NSAttributedStringKey.font:issueLabel.font,NSAttributedStringKey.foregroundColor:UIColor.clear], range: NSRange.init(location: (chengyu?.hidenIndex)! + indexStr.count, length: 1))
+            attributedText.addAttributes([NSAttributedStringKey.underlineColor:UIColor.black], range: NSRange.init(location: (chengyu?.hidenIndex)! + indexStr.count, length: 1))
+            attributedText.addAttributes([NSAttributedStringKey.underlineStyle:NSUnderlineStyle.styleSingle.rawValue], range: NSRange.init(location: (chengyu?.hidenIndex)! + indexStr.count, length: 1))
             
             let attri:NSAttributedString = (attributedText.copy() as? NSAttributedString)!
             self.issueLabel.attributedText = attri

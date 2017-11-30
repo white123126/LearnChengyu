@@ -13,8 +13,11 @@ class KKChengYuCell: UITableViewCell {
     var alignment:NSTextAlignment = NSTextAlignment.left
     var chengyu:KKChengYu? {
         didSet {
-            chengyuLabel.removeFromSuperview()
-            self.addSubview(chengyuLabel)
+            chengyuLabel.clean = true
+            chengyuLabel.chengyu = nil
+            if (self.chengyuLabel.superview == nil) {
+                self.addSubview(chengyuLabel)
+            }
             chengyuLabel.chengyu = chengyu
             let size = chengyuLabel.intrinsicContentSize
             let x = self.bounds.size.width - size.width

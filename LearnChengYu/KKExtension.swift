@@ -10,10 +10,16 @@ import UIKit
 
 extension String {
     func pingyin() -> String! {
-        let string = NSMutableString.init(string: self)
-        var range = CFRangeMake(0, self.characters.count)
-        
+        var string = NSMutableString.init(string: self)
+        var range = CFRangeMake(0, self.count)
         CFStringTransform(string as CFMutableString, &range, kCFStringTransformMandarinLatin, false)
+        let symbols = ["\u{3002}","\u{FF1F}","\u{FF01}","\u{FF0C}","\u{3001}","\u{FF1B}","\u{FF1A}","\u{300C}","\u{300D}","\u{300E}","\u{300F}","\u{2018}","\u{2019}","\u{201C}","\u{201D}","\u{FF08}","\u{FF09}","\u{3014}","\u{3015}","\u{3010}","\u{3011}","\u{2014}","\u{2026}","\u{2013}","\u{FF0E}","\u{300A}","\u{300B}","\u{3008}","\u{3009}","·"]
+        
+        for i in 0 ..< symbols.count {
+            let s = symbols[i] as String!
+            string = string.replacingOccurrences(of: s!, with: " "+s!+" ") as! NSMutableString
+        }
+        
         return string.copy() as! String
     }
 }
@@ -31,7 +37,7 @@ extension String {
     subscript (r: Range<Int>) -> String {
         let start = index(startIndex, offsetBy: r.lowerBound)
         let end = index(startIndex, offsetBy: r.upperBound)
-        return self[Range(start ..< end)]
+        return String(self[Range(start ..< end)])
     }
 }
 

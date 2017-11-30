@@ -12,20 +12,27 @@ import SnapKit
 class KKChengYuInfoViewController: UIViewController {
     var chengyu: KKChengYu!
     var chengyuLabel = KKChengYuLabel.init(frame: CGRect.zero)
-    let chuchuLabel: UILabel = UILabel.init(frame: CGRect.zero)
-    let shiyiLable: UILabel = UILabel.init(frame: CGRect.zero)
+    let scrollView: UIScrollView = UIScrollView.init()
+    let chuchuLabel: KKChengYuLabel = KKChengYuLabel.init(frame: CGRect.zero)
+    let shiyiLable: KKChengYuLabel = KKChengYuLabel.init(frame: CGRect.zero)
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = chengyu.title
         self.view.backgroundColor = UIColor.white;
-       
-        self.view.addSubview(self.chengyuLabel)
-        self.view.addSubview(self.chuchuLabel)
-        self.view.addSubview(self.shiyiLable)
+        self.view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view)
+        }
         
-        self.chengyuLabel.chengyuFontSize = self.view.bounds.size.width / CGFloat(chengyu.title.characters.count) / 2.0
+        scrollView.backgroundColor = UIColor.clear
+        scrollView.addSubview(self.chengyuLabel)
+        scrollView.addSubview(self.chuchuLabel)
+        scrollView.addSubview(self.shiyiLable)
+        
+        self.chengyuLabel.chengyuFontSize = self.view.bounds.size.width / CGFloat(chengyu.title.count) / 2.0
         self.chengyuLabel.pinyinFontSize = self.chengyuLabel.chengyuFontSize/2.0
         self.chengyuLabel.chengyu = chengyu
+        
         self.chuchuLabel.backgroundColor = UIColor.clear
         self.chuchuLabel.font = UIFont.systemFont(ofSize: 16)
         self.chuchuLabel.textColor = UIColor.gray
@@ -43,19 +50,26 @@ class KKChengYuInfoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let size: CGSize = self.view.bounds.size
         self.chengyuLabel.sizeToFit()
         let size_label = self.chengyuLabel.intrinsicContentSize
-        self.chengyuLabel.frame = CGRect.init(x: (size.width - size_label.width)/2.0, y: 84, width: size_label.width, height: size_label.height)
+        self.chengyuLabel.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self.view)
+            make.top.equalTo(scrollView).offset(20)
+            make.width.equalTo(size_label.width)
+            make.height.equalTo(size_label.height)
+        }
         self.chuchuLabel.snp.makeConstraints { (make) in
             make.left.equalTo(self.view.snp.left).offset(20)
             make.top.equalTo(self.chengyuLabel.snp.bottom).offset(40)
             make.right.equalTo(self.view.snp.right).offset(-20)
+            make.height.equalTo(self.chuchuLabel.height)
         }
         self.shiyiLable.snp.makeConstraints { (make) in
             make.left.equalTo(self.view.snp.left).offset(20)
             make.top.equalTo(self.chuchuLabel.snp.bottom).offset(40)
             make.right.equalTo(self.view.snp.right).offset(-20)
+            make.height.equalTo(self.shiyiLable.height)
+            make.bottom.equalTo(scrollView).offset(-50)
         }
     }
     override func didReceiveMemoryWarning() {

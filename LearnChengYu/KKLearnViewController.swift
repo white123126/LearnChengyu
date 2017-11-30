@@ -32,7 +32,7 @@ class KKLearnViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func nextIssue() {
+    @objc func nextIssue() {
         if learnView.issueIndex < chengyus.count {
             
             if (learnView.issueIndex == chengyus.count - 1) {

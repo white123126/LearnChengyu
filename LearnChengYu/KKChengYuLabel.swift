@@ -4,8 +4,21 @@ class KKChengYuLabel: UILabel {
     var pinyin: String = ""
     var chengyu:KKChengYu? {
         didSet {
-            title  = (chengyu?.title)!
-            pinyin = (chengyu?.pinyin)!
+            self.clean = true
+            var rect = self.frame
+            rect.size = self.intrinsicContentSize
+            self.drawText(in: rect)
+            if chengyu != nil {
+                title  = (chengyu?.title)!
+                pinyin = (chengyu?.pinyin)!
+                self.drawText(in: CGRect.zero)
+            }
+        }
+    }
+    override var text: String? {
+        didSet {
+            title = text!
+            pinyin = (text?.pingyin())!
             self.drawText(in: CGRect.zero)
         }
     }
@@ -44,52 +57,49 @@ class KKChengYuLabel: UILabel {
     }
     
     override func drawText(in rect: CGRect) {
+        height = 0.0
         if (clean == true) {
             super.drawText(in: rect)
+            let context = UIGraphicsGetCurrentContext()
+            context?.saveGState()
+            context?.clip(to: rect)
+            "".draw(in: CGRect(x: rect.origin.x, y: rect.origin.y , width: rect.size.width, height: rect.size.height), withAttributes: nil)
+            context?.restoreGState()
             clean = false
             return
         }
         
+//        if (rect.size.width < 1) {
+//            return;
+//        }
         var pinyinTmp = pinyin
-        pinyinTmp = pinyinTmp.replacingOccurrences(of: "，", with: "， ")
+        pinyinTmp = pinyinTmp.replacingOccurrences(of: "  ", with: " ")
         var arrP = pinyinTmp.components(separatedBy: " ")
         if arrP.count < 2 {
             return
         }
-        pinyinTmp = ""
-        
+        var array:[String] = []
         for i in 0..<arrP.count {
-            let str = arrP[i]
-            if str != "" {
-                if str.contains("，"){
-                    let string = str.replacingOccurrences(of: " ", with: "")
-                    pinyinTmp += string.components(separatedBy: "，").first!
-                    pinyinTmp += " "
-                    pinyinTmp += "，"
-                    pinyinTmp += " "
-                }else {
-                    pinyinTmp += str
-                    if i < arrP.count - 1 {
-                        pinyinTmp += " "
-                    }
-                }
+            let s = arrP[i] as String
+            if s != " " {
+                array.append(s)
             }
         }
-
-        arrP = pinyinTmp.components(separatedBy: " ")
+        arrP = array
         
         var left = 10
+        var top = 10;
         let context = UIGraphicsGetCurrentContext()
         var textContent = "zhuèng"
         let textStyle = NSMutableParagraphStyle()
         textStyle.alignment = .center
-        var textFontAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: pinyinFontSize)!, NSForegroundColorAttributeName: UIColor.gray, NSParagraphStyleAttributeName: textStyle]
+        var textFontAttributes = [NSAttributedStringKey.font: UIFont(name: "HelveticaNeue", size: pinyinFontSize)!, NSAttributedStringKey.foregroundColor: UIColor.gray, NSAttributedStringKey.paragraphStyle: textStyle]
         
         var size = textContent.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil)
         var textWidth: CGFloat = size.width
         
         textContent = "我"
-        textFontAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: chengyuFontSize)!, NSForegroundColorAttributeName: UIColor.gray, NSParagraphStyleAttributeName: textStyle]
+        textFontAttributes = [NSAttributedStringKey.font: UIFont(name: "HelveticaNeue", size: chengyuFontSize)!, NSAttributedStringKey.foregroundColor: UIColor.gray, NSAttributedStringKey.paragraphStyle: textStyle]
         size = textContent.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil)
         textWidth = textWidth > size.width ? textWidth : size.width
         
@@ -98,6 +108,7 @@ class KKChengYuLabel: UILabel {
             if character == "" {
                 return
             }
+            
             var textTextContent = character
             let textStyle = NSMutableParagraphStyle()
             textStyle.alignment = .center
@@ -105,26 +116,25 @@ class KKChengYuLabel: UILabel {
             if i == hidenIndex {
                 textColor = UIColor.clear
             }
-            var textFontAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: pinyinFontSize)!, NSForegroundColorAttributeName: textColor, NSParagraphStyleAttributeName: textStyle] as [String : Any]
+            var textFontAttributes:[NSAttributedStringKey : Any] = [NSAttributedStringKey.font: UIFont(name: "HelveticaNeue", size: pinyinFontSize)!,
+                                      NSAttributedStringKey.foregroundColor: textColor,
+                                      NSAttributedStringKey.paragraphStyle: textStyle.copy()]
             
             var size = textTextContent.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil)
             var textTextHeight: CGFloat = size.height + 2
-            var textRect = CGRect(x: left , y: 10, width:Int(textWidth), height: Int(textTextHeight))
+            var textRect = CGRect(x: left , y: top, width:Int(textWidth), height: Int(textTextHeight))
             context?.saveGState()
             context?.clip(to: textRect)
             textTextContent.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textWidth, height: textTextHeight), withAttributes: textFontAttributes)
             context?.restoreGState()
             
-            
-
-            
-            textRect = CGRect(x: left, y: Int(textTextHeight)+10, width: Int(textWidth), height: Int(textTextHeight))
+            textRect = CGRect(x: left, y: top + Int(textTextHeight), width: Int(textWidth), height: Int(textTextHeight))
             textTextContent = title[i]
             textColor = UIColor.black
             if i == hidenIndex {
                 textColor = UIColor.clear
             }
-            textFontAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: chengyuFontSize)!, NSForegroundColorAttributeName: textColor, NSParagraphStyleAttributeName: textStyle]
+            textFontAttributes = [NSAttributedStringKey(rawValue: NSAttributedStringKey.font.rawValue): UIFont(name: "HelveticaNeue", size: chengyuFontSize)!, NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): textColor, NSAttributedStringKey(rawValue: NSAttributedStringKey.paragraphStyle.rawValue): textStyle]
             
             size = textTextContent.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil)
             textTextHeight = size.height
@@ -138,6 +148,13 @@ class KKChengYuLabel: UILabel {
             context?.restoreGState()
             height = textRect.minY + (textRect.height - textTextHeight) / 2 + textTextHeight
             width = CGFloat(left)
+            print(height)
+            print(textTextContent)
+            if (left + Int(textWidth)) > Int(UIScreen.main.bounds.size.width - 40) {
+                left = 10
+                top = Int(height)
+                top += 5
+            }
         }
     }
     

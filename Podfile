@@ -7,10 +7,10 @@ target 'LearnChengYu' do
     pod 'ChameleonFramework'
     pod 'PermissionScope'
     pod 'Onboard'
-    pod 'RealmSwift'
+#    pod 'RealmSwift'
     pod 'Timepiece'
 #    pod 'CryptoSwift'
     pod 'FMDB'
-    pod 'SnapKit', '~> 3.2.0'
-    pod 'SQLite.swift', '~> 0.11.3'
+    pod 'SnapKit'
+    pod 'SQLite.swift'
 end

@@ -7,14 +7,15 @@
 //
 
 import UIKit
-import RealmSwift
+//import RealmSwift
 import SQLite
 import FMDB
 
 class KKDBManager: NSObject {
     static let currentUser = KKDBManager()
     var db: FMDatabase! = nil
-    var realm = try! Realm()
+    var historyDb: FMDatabase! = nil
+//    var realm = try! Realm()
     var countOfChengyu: Int = 0
     
     class func sharedManager() -> KKDBManager {
@@ -30,6 +31,18 @@ class KKDBManager: NSObject {
             self.countOfChengyu = Int(result.int(forColumn: "cnt"))
         }
         self.db.close()
+        var documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        documentsPath.append("/history.sqlite")
+        self.historyDb = FMDatabase.init(path: documentsPath)
+        if self.historyDb.open() {
+            var result = historyDb.executeUpdate("CREATE TABLE IF NOT EXISTS history (id integer PRIMARY KEY AUTOINCREMENT, date text NOT NULL, score text NOT NULL,count integer NOT NULL,isdone bool NOT NULL)", withArgumentsIn: [])
+            if result {
+                result = historyDb.executeUpdate("CREATE TABLE IF NOT EXISTS historyChengyu (id integer PRIMARY KEY AUTOINCREMENT, historyid integer NOT NULL, chengyuid integer NOT NULL)", withArgumentsIn: [])
+                if result {
+                
+                }
+            }
+        }
     }
     //随机获取几个成语 number 是成语的字数
     func randomChengYu(count:Int , number: Int) -> Array<KKChengYu> {
